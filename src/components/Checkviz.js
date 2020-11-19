@@ -16,8 +16,10 @@ const Checkviz = (props) => {
     pointsData = pointsData.map((d, i) => {
         return {
             coor: d.coor,
-            lable: d.label,
-            idx: i
+            label: d.label,
+            idx: i,
+            cont: d.cont,
+            trust: d.trust
         };
     });
     
@@ -64,6 +66,8 @@ const Checkviz = (props) => {
         svgVoronoi = svg.append("g")
                         .attr("id", "voronoi_g" + props.dataset + props.method);
 
+        console.log(pointsData)
+
 
         pointsArray = pointsData.map((d, i) => [xScale(d.coor[0]), yScale(d.coor[1])])
         console.log(pointsArray)
@@ -73,12 +77,22 @@ const Checkviz = (props) => {
         console.log(voronoi.cellPolygon(2));
 
         const voronoiCells = pointsArray.map((_, i) => voronoi.cellPolygon(i));
+
+        function scaleBivariate(first, second) {
+            let lScale = d3.scaleLinear().domain([0, 2]).range([100, 30])
+            let aScale = d3.scaleLinear().domain([1, -1]).range([30, -30])
+            let bScale = d3.scaleLinear().domain([1, -1]).range([20, -20])
+
+            return d3.color(d3.lab(lScale(first + second), aScale(first - second), bScale(second-first)))
+        }
         
         svgVoronoi.selectAll("path")
                   .data(voronoiCells)
                   .enter()
                   .append("path")
-                  .attr("fill", (d, i) => colorScale(i))
+                  .attr("fill", (d, i) => {
+                      return scaleBivariate(pointsData[i].cont, pointsData[i].trust)
+                  })
                   .attr("stroke",1)
                   .attr("d", d => {
                       return d3.line()
@@ -124,13 +138,7 @@ const Checkviz = (props) => {
         
         // edges
 
-        function scaleBivariate(first, second) {
-            let lScale = d3.scaleLinear().domain([0, 2]).range([100, 30])
-            let aScale = d3.scaleLinear().domain([1, -1]).range([30, -30])
-            let bScale = d3.scaleLinear().domain([1, -1]).range([20, -20])
-
-            return d3.color(d3.lab(lScale(first + second), aScale(first - second), bScale(second-first)))
-        }
+        
 
     }, []);
    
