@@ -334,7 +334,7 @@ const Explorer = (props) => {
                             //      if ( props.showMissing &&  props.showFalse) return Math.min((d.missing_val + d.false_val), 1); 
                             //  })
                              .attr("stroke", d => {
-                                 if (props.showMissing && props.showFalse) return scaleBivariate(d.missing_val, d.false_val);
+                                 if (props.showMissing && props.showFalse) return scaleBivariate(d.false_val, d.missing_val);
                                  else return "black";
                              })
                              .attr("d", d => {

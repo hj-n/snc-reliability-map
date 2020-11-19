@@ -91,7 +91,7 @@ const Checkviz = (props) => {
                   .enter()
                   .append("path")
                   .attr("fill", (d, i) => {
-                      return scaleBivariate(pointsData[i].cont, pointsData[i].trust)
+                      return scaleBivariate(1 - pointsData[i].trust, 1 - pointsData[i].cont)
                   })
                   .attr("stroke",1)
                   .attr("d", d => {
