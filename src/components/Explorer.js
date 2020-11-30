@@ -17,7 +17,7 @@ const Explorer = (props) => {
     pointsData = pointsData.map((d, i) => {
         return {
             coor: d.coor,
-            lable: d.label,
+            label: d.label,
             idx: i
         };
     });
@@ -196,7 +196,7 @@ const Explorer = (props) => {
                                                     .data(points)
                                                     .enter()
                                                     .append("circle")
-                                                    .attr("r", radius * 3)
+                                                    .attr("r", radius * 2)
                                                     .attr("cx", d => xScale(pointsData[d].coor[0]))
                                                     .attr("cy", d => yScale(pointsData[d].coor[1]))
                                                     .attr("fill", "blue");
@@ -289,22 +289,6 @@ const Explorer = (props) => {
                                             let missingPointsDict = missingPointsData[d.idx];
                                             let edges = getMissingEdgesInfo(missingPointsDict)
                                             renderMissingEdges(edges, missingPointsDict);
-                                            // svgMissingEdges.selectAll("path")
-                                            //                .data(edges)
-                                            //                .enter()
-                                            //                .append("path")
-                                            //                .attr("fill", "none")
-                                            //                .attr("stroke-width", strokeWidth)
-                                            //                .attr("stroke", "red")
-                                            //                .attr("d", d => {
-                                            //                    return d3.line()
-                                            //                             .x(datum => xScale(pointsData[datum].coor[0]))
-                                            //                             .y(datum => yScale(pointsData[datum].coor[1]))
-                                            //                             (d);
-                                            //                })
-                                            //                .style("opacity", d => {
-                                            //                    return (missingPointsDict[d[0]] + missingPointsDict[d[1]]) / 2
-                                            //                })
                                          }
                                      });
                              }
@@ -328,11 +312,11 @@ const Explorer = (props) => {
                         enter.append("path")
                              .attr("fill", "none")
                              .attr("stroke-width", strokeWidth)
-                            //  .attr("opacity", d => {
-                            //      if ( props.showMissing && !props.showFalse) return d.missing_val;
-                            //      if (!props.showMissing &&  props.showFalse) return d.false_val;
-                            //      if ( props.showMissing &&  props.showFalse) return Math.min((d.missing_val + d.false_val), 1); 
-                            //  })
+                             .attr("opacity", d => {
+                                 if ( props.showMissing && !props.showFalse) return d.missing_val;
+                                 if (!props.showMissing &&  props.showFalse) return d.false_val;
+                                 if ( props.showMissing &&  props.showFalse) return 1;
+                             })
                              .attr("stroke", d => {
                                  if (props.showMissing && props.showFalse) return scaleBivariate(d.false_val, d.missing_val);
                                  else return "black";

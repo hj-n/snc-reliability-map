@@ -6,21 +6,21 @@ function App() {
   return (
     <div className="App">
       <header/>
-      <Checkviz
-        method="pca"
+      {/* <Checkviz
+        method="tsne"
         dataset="mnist_sampled_2"
-        isLabel={false}
-        radius={0.7}
-      />
-      {/* <Explorer
-        method="pca"
+        isLabel={true}
+        radius={1}
+      /> */}
+      <Explorer
+        method="tsne"
         dataset="mnist_sampled_2"
-        isLabel={false}
+        isLabel={true}
         showMissing={true}
         showFalse={true}
-        radius={0.7}
-        stroke={1.5}
-      /> */}
+        radius={2}
+        stroke={5}
+      />
       <footer/>
     </div>
   );

@@ -79,11 +79,26 @@ const Checkviz = (props) => {
         const voronoiCells = pointsArray.map((_, i) => voronoi.cellPolygon(i));
 
         function scaleBivariate(first, second) {
-            let lScale = d3.scaleLinear().domain([0, 2]).range([100, 30])
-            let aScale = d3.scaleLinear().domain([1, -1]).range([30, -30])
-            let bScale = d3.scaleLinear().domain([1, -1]).range([20, -20])
+            // let lScale = d3.scaleLinear().domain([0, 2]).range([100, 30])
+            // let aScale = d3.scaleLinear().domain([1, -1]).range([30, -30])
+            // let bScale = d3.scaleLinear().domain([1, -1]).range([20, -20])
 
-            return d3.color(d3.lab(lScale(first + second), aScale(first - second), bScale(second-first)))
+            // return d3.color(d3.lab(lScale(first + second), aScale(first - second), bScale(second-first)))
+
+
+            // second -= (1/size);
+
+            let cScale = 1.3
+            
+            let powScale = d3.scalePow().exponent(1.5145);
+            let lScale1 = d3.scaleLinear().domain([0, 2]).range([-20, 100])
+            let lScale2 = d3.scaleLinear().domain([1, 2]).range([35, 0])
+            let aScale = d3.scaleLinear().domain([1, -1]).range([30 * cScale, -30 * cScale])  //30
+            let bScale = d3.scaleLinear().domain([1, -1]).range([20 * cScale, -20 * cScale])  // 20   
+            let lScale;
+
+
+            return d3.color(d3.lab(powScale(1 - (first + second) / 2) * 100, aScale(first - second), bScale(second - first)))
         }
         
         svgVoronoi.selectAll("path")
@@ -93,7 +108,7 @@ const Checkviz = (props) => {
                   .attr("fill", (d, i) => {
                       return scaleBivariate(1 - pointsData[i].trust, 1 - pointsData[i].cont)
                   })
-                  .attr("stroke",1)
+                  .attr("stroke",0)
                   .attr("d", d => {
                       return d3.line()
                                .x(datum => datum[0])
