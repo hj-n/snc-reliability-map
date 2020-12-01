@@ -12,7 +12,7 @@ const Explorer = (props) => {
     let missingPointsData = require("../json/" + jsonFileName + "_missing_points.json")
 
 
-
+    console.log(edgesData)
 
     pointsData = pointsData.map((d, i) => {
         return {
@@ -229,6 +229,14 @@ const Explorer = (props) => {
                                                 .attr("stroke-width", 1);
                                   }
                               }
+                              else {
+                                  isSelecting.current = false;
+                                  contour.current = [];
+                                  svgContour.selectAll("path").remove();
+                                  svgContour.selectAll("circle").remove();
+                                  svgContourPoints.selectAll("circle").remove();
+                                  svgMissingEdges.selectAll("path").remove();
+                              }
                             })
                             .on("mousemove", function(event) {
                                 // console.log(event)
@@ -274,23 +282,23 @@ const Explorer = (props) => {
                                      .attr("cy", d => yScale(d.coor[1]))
                                      .style("opacity", 0.8)
                                      .attr("r", radius)
-                                     .on("mouseenter", function() {
-                                         if(!isSelecting.current && !isMakingContour.current)
-                                            d3.select(this).attr("r", radius * 3)
-                                     })
-                                     .on("mouseleave", function() {
-                                         if(!isSelecting.current && !isMakingContour.current)
-                                            d3.select(this).attr("r", radius)
-                                     })
-                                     .on("click", function(e, d) {
-                                         if(!isSelecting.current && !isMakingContour.current){
-                                            isSelecting.current = true;
-                                            d3.select(this).attr("r", radius * 5);
-                                            let missingPointsDict = missingPointsData[d.idx];
-                                            let edges = getMissingEdgesInfo(missingPointsDict)
-                                            renderMissingEdges(edges, missingPointsDict);
-                                         }
-                                     });
+                                    //  .on("mouseenter", function() {
+                                    //      if(!isSelecting.current && !isMakingContour.current)
+                                    //         d3.select(this).attr("r", radius * 3)
+                                    //  })
+                                    //  .on("mouseleave", function() {
+                                    //      if(!isSelecting.current && !isMakingContour.current)
+                                    //         d3.select(this).attr("r", radius)
+                                    //  })
+                                    //  .on("click", function(e, d) {
+                                    //      if(!isSelecting.current && !isMakingContour.current){
+                                    //         isSelecting.current = true;
+                                    //         d3.select(this).attr("r", radius * 5);
+                                    //         let missingPointsDict = missingPointsData[d.idx];
+                                    //         let edges = getMissingEdgesInfo(missingPointsDict)
+                                    //         renderMissingEdges(edges, missingPointsDict);
+                                    //      }
+                                    //  });
                              }
                          );
         

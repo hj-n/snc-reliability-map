@@ -79,14 +79,6 @@ const Checkviz = (props) => {
         const voronoiCells = pointsArray.map((_, i) => voronoi.cellPolygon(i));
 
         function scaleBivariate(first, second) {
-            // let lScale = d3.scaleLinear().domain([0, 2]).range([100, 30])
-            // let aScale = d3.scaleLinear().domain([1, -1]).range([30, -30])
-            // let bScale = d3.scaleLinear().domain([1, -1]).range([20, -20])
-
-            // return d3.color(d3.lab(lScale(first + second), aScale(first - second), bScale(second-first)))
-
-
-            // second -= (1/size);
 
             let cScale = 1.3
             

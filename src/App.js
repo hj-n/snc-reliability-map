@@ -8,9 +8,9 @@ function App() {
       <header/>
       {/* <Checkviz
         method="tsne"
-        dataset="mnist_sampled_2"
+        dataset="mnist_sampled_50"
         isLabel={true}
-        radius={1}
+        radius={5}
       /> */}
       <Explorer
         method="tsne"
