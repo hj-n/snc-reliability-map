@@ -55,7 +55,7 @@ const Explorer = (props) => {
     const strokeWidth = props.stroke;
 
 
-    let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+    let colorScale = ["#3275b6", "#f27f04", "#140e5c", "#d8241f", "#f57d7d", "#8d5649", "#e574c3", "#7f7f7f", "#bcbf02", "#4ebed1"]
 
 
     const isSelecting = useRef(false);
@@ -134,7 +134,7 @@ const Explorer = (props) => {
                                       (d);
                           })
                           .style("opacity", d => {
-                              return (missingPointsDict[d[0]] + missingPointsDict[d[1]]) / 2
+                              return ((missingPointsDict[d[0]] + missingPointsDict[d[1]]) / 2)
                           });
         }
 
@@ -275,7 +275,7 @@ const Explorer = (props) => {
                                  enter.append("circle")
                                      .attr("class", (d,i) => "circle" + i.toString())
                                      .attr("fill", d => {
-                                         if (props.isLabel) return colorScale(d.label);
+                                         if (props.isLabel) return colorScale[d.label];
                                          else return "black"; 
                                      })
                                      .attr("cx", d => xScale(d.coor[0]))
@@ -321,6 +321,7 @@ const Explorer = (props) => {
                              .attr("fill", "none")
                              .attr("stroke-width", strokeWidth)
                              .attr("opacity", d => {
+                                 return 1;
                                  if ( props.showMissing && !props.showFalse) return d.missing_val;
                                  if (!props.showMissing &&  props.showFalse) return d.false_val;
                                  if ( props.showMissing &&  props.showFalse) return 1;

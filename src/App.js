@@ -12,14 +12,14 @@ function App() {
         isLabel={true}
         radius={5}
       /> */}
-      <Explorer
-        method="tsne"
-        dataset="mnist_sampled_2"
+      <Checkviz
+        method=""
+        dataset="spheres_split_angle_5"
         isLabel={true}
         showMissing={true}
         showFalse={true}
-        radius={2}
-        stroke={5}
+        radius={1.3}
+        stroke={3}
       />
       <footer/>
     </div>

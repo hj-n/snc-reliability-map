@@ -36,11 +36,11 @@ const Checkviz = (props) => {
 
     const xScale = d3.scaleLinear()
                         .domain([minX, maxX])
-                        .range([0, width]);
+                        .range([margin.hor, width - margin.hor]);
     
     const yScale = d3.scaleLinear()
                         .domain([minY, maxY])
-                        .range([0, height]);
+                        .range([margin.ver, height - margin.ver]);
 
 
     let svgs, svg, svgVoronoi, svgPoints;
@@ -48,7 +48,7 @@ const Checkviz = (props) => {
     const radius = props.radius;
 
 
-    let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+    let colorScale = ["#3275b6", "#f27f04", "#140e5c", "#d8241f", "#f57d7d", "#8d5649", "#e574c3", "#7f7f7f", "#bcbf02", "#4ebed1"]
 
     useEffect(() => {
 
@@ -98,7 +98,7 @@ const Checkviz = (props) => {
                   .enter()
                   .append("path")
                   .attr("fill", (d, i) => {
-                      return scaleBivariate(1 - pointsData[i].trust, 1 - pointsData[i].cont)
+                      return scaleBivariate(pointsData[i].trust, pointsData[i].cont)
                   })
                   .attr("stroke",0)
                   .attr("d", d => {
@@ -134,7 +134,7 @@ const Checkviz = (props) => {
                                  enter.append("circle")
                                      .attr("class", (d,i) => "circle" + i.toString())
                                      .attr("fill", d => {
-                                         if (props.isLabel) return colorScale(d.label);
+                                         if (props.isLabel) return colorScale[d.label];
                                          else return "black"; 
                                      })
                                      .attr("cx", d => xScale(d.coor[0]))
