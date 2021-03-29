@@ -55,7 +55,7 @@ const Explorer = (props) => {
     const strokeWidth = props.stroke;
 
 
-    let colorScale = ["#3275b6", "#f27f04", "#140e5c", "#d8241f", "#f57d7d", "#8d5649", "#e574c3", "#7f7f7f", "#bcbf02", "#4ebed1"]
+    let colorScale = d3.scaleOrdinal(d3.schemeCategory10)
 
 
     const isSelecting = useRef(false);
@@ -275,7 +275,7 @@ const Explorer = (props) => {
                                  enter.append("circle")
                                      .attr("class", (d,i) => "circle" + i.toString())
                                      .attr("fill", d => {
-                                         if (props.isLabel) return colorScale[d.label];
+                                         if (props.isLabel) return colorScale(d.label);
                                          else return "black"; 
                                      })
                                      .attr("cx", d => xScale(d.coor[0]))
@@ -312,7 +312,7 @@ const Explorer = (props) => {
             return d3.color(d3.lab(lScale(first + second), aScale(first - second), bScale(second-first)))
         }
 
-
+        if (props.drawEdge) {
         svgEdges.selectAll("path")
                 .data(edgesData)
                 .join(
@@ -338,6 +338,7 @@ const Explorer = (props) => {
                              });
                     }
                 )
+        }
     }, []);
    
 

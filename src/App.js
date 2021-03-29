@@ -13,13 +13,14 @@ function App() {
         radius={5}
       /> */}
       <Explorer
-        method="tsne"
-        dataset="fmnist_1000"
+        method="umap"
+        dataset="mnist"
         isLabel={true}
         showMissing={true}
         showFalse={true}
-        radius={2.4}  // 2.4
+        radius={3.3}  // 1.8 for noncategory, 3 for category data
         stroke={4.5}
+        drawEdge={false}
       />
       <footer/>
     </div>
