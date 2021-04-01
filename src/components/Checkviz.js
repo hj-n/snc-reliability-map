@@ -93,12 +93,16 @@ const Checkviz = (props) => {
             return d3.color(d3.lab(powScale(1 - (first + second) / 2) * 100, aScale(first - second), bScale(second - first)))
         }
         
+        const ccScale = d3.scaleLinear()
+                        .domain([0.18181818, 1])
+                        .range([0, 1]);
+
         svgVoronoi.selectAll("path")
                   .data(voronoiCells)
                   .enter()
                   .append("path")
                   .attr("fill", (d, i) => {
-                      return scaleBivariate(pointsData[i].trust, pointsData[i].cont)
+                      return scaleBivariate(ccScale(pointsData[i].trust), ccScale(pointsData[i].cont))
                   })
                   .attr("stroke",0)
                   .attr("d", d => {

@@ -13,14 +13,14 @@ function App() {
         radius={5}
       /> */}
       <Explorer
-        method="umap"
-        dataset="mnist"
-        isLabel={true}
+        method=""
+        dataset="spheres_split_angle_5"
+        isLabel= {false}
         showMissing={true}
         showFalse={true}
-        radius={3.3}  // 1.8 for noncategory, 3 for category data
+        radius={0.8}  // 1.8 for noncategory, 3 for category data
         stroke={4.5}
-        drawEdge={false}
+        drawEdge={true}
       />
       <footer/>
     </div>
