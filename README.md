@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/38465539/123600430-9fbea280-d831-11eb-9c29-446bb6f96cfe.png)
+![](https://user-images.githubusercontent.com/38465539/123689703-7c761080-d88e-11eb-9a66-5e545a8ecb08.png)
 
 <p align="center">
   <i>The relaibility map to visualize the distortion measured by Steadiness & Cohesiveness</i>
