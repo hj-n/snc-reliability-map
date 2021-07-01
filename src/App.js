@@ -1,6 +1,6 @@
 import './App.css';
 import Checkviz from './components/Checkviz';
-import Explorer from './components/Explorer';
+import ReliabilityMap from './components/ReliabilityMap';
 
 function App() {
   return (
@@ -12,9 +12,8 @@ function App() {
         isLabel={true}
         radius={5}
       /> */}
-      <Explorer
-        method=""
-        dataset="spheres_split_angle_5"
+      <ReliabilityMap
+        identifier="info"
         isLabel= {false}
         showMissing={true}
         showFalse={true}

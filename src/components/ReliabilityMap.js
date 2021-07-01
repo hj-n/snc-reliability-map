@@ -1,18 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { precisionPrefix } from 'd3';
 import inside from 'point-in-polygon'
 
-const Explorer = (props) => {
+const ReliabilityMap = (props) => {
 
+    const data = require("../json/" + props.identifier + ".json");
+    let pointsData = data.points;
+    const edgesData = data.edge_info;
+    const missingPointsData = data.missing_info;
 
-    let jsonFileName = props.dataset + "_" + props.method;
-    let pointsData = require("../json/" + jsonFileName + "_points.json");
-    let edgesData = require("../json/" + jsonFileName + "_edges.json");
-    let missingPointsData = require("../json/" + jsonFileName + "_missing_points.json")
-
-
-    console.log(edgesData)
 
     pointsData = pointsData.map((d, i) => {
         return {
@@ -282,23 +278,7 @@ const Explorer = (props) => {
                                      .attr("cy", d => yScale(d.coor[1]))
                                      .style("opacity", 0.8)
                                      .attr("r", radius)
-                                    //  .on("mouseenter", function() {
-                                    //      if(!isSelecting.current && !isMakingContour.current)
-                                    //         d3.select(this).attr("r", radius * 3)
-                                    //  })
-                                    //  .on("mouseleave", function() {
-                                    //      if(!isSelecting.current && !isMakingContour.current)
-                                    //         d3.select(this).attr("r", radius)
-                                    //  })
-                                    //  .on("click", function(e, d) {
-                                    //      if(!isSelecting.current && !isMakingContour.current){
-                                    //         isSelecting.current = true;
-                                    //         d3.select(this).attr("r", radius * 5);
-                                    //         let missingPointsDict = missingPointsData[d.idx];
-                                    //         let edges = getMissingEdgesInfo(missingPointsDict)
-                                    //         renderMissingEdges(edges, missingPointsDict);
-                                    //      }
-                                    //  });
+                                  
                              }
                          );
         
@@ -350,4 +330,4 @@ const Explorer = (props) => {
     );
 };
 
-export default Explorer;
+export default ReliabilityMap;
