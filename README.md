@@ -1,4 +1,7 @@
-![](https://user-images.githubusercontent.com/38465539/123689703-7c761080-d88e-11eb-9a66-5e545a8ecb08.png)
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38465539/123689703-7c761080-d88e-11eb-9a66-5e545a8ecb08.png" alt="" data-canonical-src="https://user-images.githubusercontent.com/38465539/123689703-7c761080-d88e-11eb-9a66-5e545a8ecb08.png" width="80%"/>
+</p>
 
 <p align="center">
   <i>The relaibility map to visualize the distortion measured by Steadiness & Cohesiveness</i>
@@ -62,7 +65,7 @@ npm start
 
 ### Setup
 
-By calling `SNC.vis_info(file_path)` method after computing Steadiness & Cohesiveness (please refer the [API](https://github.com/hj-n/steadiness-cohesiveness#methods)), the files with distortion infos are saved in designated `file_path`. Copy & paste the files to `snc-reliability-map/src/json/` and set required arguments to properly run the program.
+By calling `SNC.vis_info(file_path)` method after computing Steadiness & Cohesiveness (please refer the [API](https://github.com/hj-n/steadiness-cohesiveness#methods)), a json file with distortion infos are saved in designated `file_path`. Copy & paste the files to `snc-reliability-map/src/json/` and set required arguments to properly run the program.
 
 ### API
 
