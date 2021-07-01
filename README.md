@@ -16,7 +16,6 @@
   </p>
 </p>
 
-*(documentation still in progress)*
 
 ## The reliablity map
 
@@ -52,7 +51,7 @@ The map also provides the interaction to analyze Missing Groups distortions in d
 ## How to use the reliability map
 
 The relaibility map is implemented with React framework and [D3.js](https://d3js.org/), and served as npm project.
-To use the map, clone this project and inject the distortion info files generated while measuring [Steadiness & Cohesiveness](https://github.com/hj-n/steadiness-cohesiveness#methods).
+To use the map, clone this project and inject a distortion info file generated while measuring [Steadiness & Cohesiveness](https://github.com/hj-n/steadiness-cohesiveness#methods).
 
 ```sh
 git clone https://github.com/hj-n/snc-reliability-map
@@ -86,9 +85,10 @@ The reliability map is served as React component embedded in a React web applica
 ```
 
 > - **`identifier`** : `string`
->   - the identifier of distortion info files (set by Steadiness & Cohesiveness)
+>   - the identifier of distortion info files (set by Steadiness & Cohesiveness).
+>   - if the name of file is `abs.json`, identifier should be `abs`.
 > - **`isLabel`** : `bool`
->   - if `true` and there exists a file holds the label (class) information, the reliability map also visualizes the label info by encoding color to each point
+>   - if `true` and there exists a file holds the label (class) information, the reliability map also visualizes the label info by encoding color to each point.
 > - **`showMissing, showFalse`** : `bool` 
 >   - if `true`, visualizes Missing / False distortions, respectively.
 > - **`drawEdge`** : `bool`
