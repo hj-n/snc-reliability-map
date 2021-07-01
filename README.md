@@ -21,7 +21,7 @@
 
 ### Overview
 
-Okay - you measured the quality of multidimensional projections (MDP) with Steadiness & Cohesiveness. However, only quantitative metrics cannot intuitively explain how and where distortions occurred in the projection. For further analysis and practical use of the metrics, we need to visualize the occurrence of distortion. We designed _The reliability map_ is designed for such a purpose.
+Okay - you measured the quality of multidimensional projections (MDP) with Steadiness & Cohesiveness. However, only quantitative metrics cannot intuitively explain how and where distortions occurred in the projection. For further analysis and practical use of the metrics, we need to visualize the occurrence of distortion. We designed _The reliability map_ for such a purpose.
 
 The reliability map visualizes two aspects of MDP distortions: _False Groups_ and _Missing Groups_. 
 False Groups distortion denotes where a low-dimensional group in a single cluster consists of separated groups in the original space.
