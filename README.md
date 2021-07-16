@@ -9,7 +9,7 @@
     <a href="https://github.com/hj-n/steadiness-cohesiveness">Steadiness & Cohesiveness</a>
     ·
 <!--     <a href=""> -->
-      Paper
+      <a href="http://hcil.snu.ac.kr/system/publications/pdfs/000/000/157/original/Measuring_and_Explaining_the_Inter_Cluster_Reliability_of_Multidimensional_Projections__for_VIS2021__%281%29.pdf?1626439932">Paper</a>
 <!--   </a> -->
     ·
     <a href="mailto:hj@hcil.snu.ac.kr">Contact</a>
@@ -99,9 +99,33 @@ The reliability map is served as React component embedded in a React web applica
 >   - set the radius of data points / the stroke width of edges
 
 
-## Reference / Citation
 
-TBA
+## References / Citation
+
+If you have used Steadiness & Cohesvieness and the reliability map for your project and wish to reference it, please cite our TVCG paper.
+
+> H. Jeon, H.-K. Ko, Y. Kim, J. Jo, and J. Seo, “Measuring and explaining the inter-cluster reliability of multidimensional projections,” *IEEE Transactions on Visualization and Computer Graphics (TVCG, Proc. VIS)*, 2021. to appear. 
+
+
+#### Bibtex
+
+```bib
+@article{jeon21tvcg,
+  author={Jeon, Hyeon and Ko, Hyung-Kwon and Kim, Youngtaek and Jo, Jaemin and Seo, Jinwook},
+  journal={IEEE Transactions on Visualization and Computer Graphics (TVCG, Proc. VIS)}, 
+  title={Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections}, 
+  year={2021},
+  note={to appear.}
+}
+
+```
+
+
+## Contributors
+
+[Hyeon Jeon](https://github.com/hj-n), [Hyung-Kwon Ko](https://github.com/hyungkwonko), [Jaemin Jo](https://github.com/e-), [Youngtaek Kim](https://github.com/ytaek), and Jinwook Seo.
+
+This software is mainly developed / maintained by Human-computer Interaction Laboratory @ Seoul National University.
 
 ## Contact
 
