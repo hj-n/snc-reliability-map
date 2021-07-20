@@ -9,7 +9,7 @@
     <a href="https://github.com/hj-n/steadiness-cohesiveness">Steadiness & Cohesiveness</a>
     ·
 <!--     <a href=""> -->
-      <a href="http://hcil.snu.ac.kr/system/publications/pdfs/000/000/157/original/Measuring_and_Explaining_the_Inter_Cluster_Reliability_of_Multidimensional_Projections__for_VIS2021__%281%29.pdf?1626439932">Paper</a>
+      <a href="http://hcil.snu.ac.kr/system/publications/pdfs/000/000/157/original/jeon_2021_tvcg.pdf?1626669574">Paper</a>
 <!--   </a> -->
     ·
     <a href="mailto:hj@hcil.snu.ac.kr">Contact</a>
